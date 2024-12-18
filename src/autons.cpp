@@ -1,7 +1,7 @@
 #include "autons.hpp"
 #include "main.h"
 
-// Test for github
+// Check BBEdit for instructions on github
 
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
