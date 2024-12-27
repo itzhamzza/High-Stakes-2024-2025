@@ -28,6 +28,7 @@ void intaking(){
         if(master.get_digital(DIGITAL_R2)){
             //intakes in
             intake.move_velocity(1200);
+            pros::delay(50);
             
             if (dir == true){
                 intake.move_velocity(-300); 
@@ -45,7 +46,8 @@ void intaking(){
         }
         else{
             intake.move_velocity(0);
-            intake.set_brake_mode(MOTOR_BRAKE_COAST);
+        
+            //intake.set_brake_mode(MOTOR_BRAKE_COAST);
             
 
         }
@@ -66,7 +68,7 @@ void colorSort(){
                    intake.move_velocity(0);
                    pros::delay(1000);
                }
-        pros::delay(100);
+               pros::delay(50);
     
 
     }
@@ -81,12 +83,15 @@ void ladybrownMovement(){
             //arm up
             if (stage == 0){
                 ladyBrown.set_brake_mode(MOTOR_BRAKE_HOLD);
+                intake.set_brake_mode(MOTOR_BRAKE_HOLD);
+            
                 ladyBrown.move_absolute(-85, 200);
                 
                 stage++;
             }
             else if (stage != 0){
-                ladyBrown.move_absolute(-350, 200);
+                intake.set_brake_mode(MOTOR_BRAKE_COAST);
+                ladyBrown.move_absolute(-390, 200);
                 //stage--;
             }
 
@@ -104,6 +109,7 @@ void ladybrownMovement(){
             //arm down
             ladyBrown.move_absolute(12, 200);
             ladyBrown.set_brake_mode(MOTOR_BRAKE_COAST);
+            intake.set_brake_mode(MOTOR_BRAKE_COAST);
             stage = 0;
             //rotation_sens.reset();
             //while (rotation_sens.get_position() <= 35700){

@@ -3,11 +3,15 @@
 #include "EZ-Template/drive/drive.hpp"
 
 extern Drive chassis;
-void skills();
+void blueAlliance3Ring(); //For Sugar
+void BlueNegHalfAWP(); 
+void BlueSoloAWPSig(); //For Sugar
+void bluePos2(); //For Sugar
+void skills(); //For Sugar
 void blueSoloSig();
 void redSoloSig();
-void blueFiveRing();
-void redFiveRing();
+void blueFiveRing(); //For Sugar
+void redFiveRing(); // For Sugar
 void RedPosHalf();
 void BlueNegAWP();
 void BluePos();

@@ -6,7 +6,7 @@
 // https://ez-robotics.github.io/EZ-Template/
 /////
 
-
+//Check BBEdit for instructions on GitHub
 // Chassis constructor
 ez::Drive chassis(
     // Drive motors, the first motor is used for sensing
@@ -43,11 +43,17 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    Auton("Skills", skills),
+    
+      Auton("blueAlliance3Ring", blueAlliance3Ring),
+      Auton("BlueSoloAWPSig", BlueSoloAWPSig),
+      Auton("blueFiveRing", blueFiveRing),
+      Auton("redFiveRing", redFiveRing),
+      Auton("bluePos2", bluePos2),
+      Auton("Skills", skills),
       Auton("Red Side, redFiveRing", redFiveRing),
-      Auton("Red Side, redSoloSig", redSoloSig),
+      //Auton("Red Side, redSoloSig", redSoloSig),
       Auton("Blue Side, blueFiveRing", blueFiveRing),
-      Auton("Blue Side, blueSoloSig", blueSoloSig),
+     // Auton("Blue Side, blueSoloSig", blueSoloSig),
       Auton("Red Side near Positive corner, Half", RedPosHalf),
       Auton("Blue Side near Positive corner, RISKY AWP", BlueNegAWP),
       Auton("Blue Side near Positive corner", BluePos),
