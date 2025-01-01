@@ -58,9 +58,11 @@ void colorSort(){
     
         // //THIS THORWS OUT RED
             // while (color_sens.get_hue() < 20 && color_sens.get_hue() > 5){
-            //    //pros::delay(50);
-            //     intake.move_velocity(0);
-            //     pros::delay(1000);
+            //    //pros::delay(100);
+                //    sortering = true;
+                //    intake.move_velocity(0);
+                //    pros::delay(1000);
+                //    sortering = false;
             // }
         //THIS THROWS OUT BLUE
                if (color_sens.get_hue() > 225 && color_sens.get_hue() < 230){
