@@ -133,64 +133,77 @@ void BlueNegHalfAWP(){
   chassis.pid_wait();
 }
 void BlueSoloAWPSig(){
+  chassis.pid_drive_set(10_in, DRIVE_SPEED);
+  chassis.pid_wait();
   
-  chassis.pid_drive_set(8_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-1.5_in, DRIVE_SPEED);
   chassis.pid_wait();
   chassis.pid_turn_set(-90_deg,TURN_SPEED);
   chassis.pid_wait();
   chassis.pid_drive_set(5_in, DRIVE_SPEED);
   chassis.pid_wait();
   ladyBrown.move_absolute(-350,200);
-  pros::delay(500);
+  pros::delay(200);
   chassis.pid_drive_set(-5_in, DRIVE_SPEED);
   chassis.pid_wait();
   //Ring on alliance stake
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(34_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_drive_set(-20_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-40_in, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(-20_in, 50);
-  chassis.pid_wait_quick();
+  //chassis.pid_drive_set(-20_in, 50);
+  //chassis.pid_wait_quick();
   clamper.set_value(true);
   armPiston.set_value(false);
   ladyBrown.move_absolute(5,200);
  
   //goal is grabbed
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-120_deg, TURN_SPEED);
+  chassis.pid_turn_set(-125_deg, TURN_SPEED);
   chassis.pid_wait_quick();
   intake.move_velocity(1200);
-  chassis.pid_drive_set(22_in, DRIVE_SPEED);
+  chassis.pid_drive_set(22_in, 70);
   chassis.pid_wait_quick();
   chassis.drive_imu_reset(); 
   //1st Ring on Goal
-  chassis.pid_turn_set(-100_deg, TURN_SPEED);
+  chassis.pid_turn_set(-95_deg, TURN_SPEED);
   chassis.pid_wait_quick();
-  chassis.pid_drive_set(15.5_in, DRIVE_SPEED);
+  chassis.pid_drive_set(18_in, DRIVE_SPEED);
   chassis.pid_wait_quick();
-  pros::delay(100);
+  pros::delay(200);
   //2nd Ring on goal
   chassis.pid_drive_set(-5_in, DRIVE_SPEED);
   chassis.pid_wait();
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(-110_deg, TURN_SPEED);
   chassis.pid_wait_quick();
+  intake.move_velocity(-1200);
   chassis.pid_drive_set(60_in, DRIVE_SPEED);
-  chassis.pid_wait_quick();
-  clamper.set_value(false);
-  chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-90_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_drive_set(-25_in, 90);
+  clamper.set_value(false);
+  
+  //Going towards the 2nd Goal
+  
+  chassis.drive_imu_reset(); 
+  chassis.pid_turn_set(-87_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-30_in, 90);
+  intake.move_velocity(0);
   chassis.pid_wait();
   clamper.set_value(true);
+  /*
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(120_deg, TURN_SPEED);
   chassis.pid_wait_quick();
   chassis.pid_drive_set(25_in, 90);
   chassis.pid_wait();
-  
+  chassis.drive_imu_reset(); 
+  chassis.pid_turn_set(-45_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_drive_set(-25_in, 90);
+  chassis.pid_wait();
+  */
  
   pros::delay(2000);
 
@@ -200,26 +213,30 @@ void BlueSoloAWPSig(){
 
 void bluePos2(){
   armPiston.set_value(false);
-  chassis.pid_drive_set(-20_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-28_in, 50);
   chassis.pid_wait();
-  chassis.pid_drive_set(-4_in, 50);
-  chassis.pid_wait();
+  
   clamper.set_value(true);
-  pros::delay(200);
+  pros::delay(500);
+  chassis.pid_drive_set(3_in, 80);
+  chassis.pid_wait();
+  
+  
   intake.move_velocity(1200);
   //1st ring in
   chassis.pid_turn_set(72_deg,TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_drive_set(17_in, DRIVE_SPEED);
+  chassis.pid_drive_set(19_in, DRIVE_SPEED);
   chassis.pid_wait();
-  intake.move_velocity(-200);
+  //intake.move_velocity(-200);
   pros::delay(200);
   intake.move_velocity(1200);
    //2nd ring in
   pros::delay(400);
+  chassis.pid_drive_set(-2_in, DRIVE_SPEED);
+  chassis.pid_wait();
   chassis.drive_imu_reset(); 
   chassis.pid_turn_set(-167_deg, TURN_SPEED);
-  chassis.pid_wait();
   chassis.pid_wait();
   armPiston.set_value(true);
   //starts going to 3rd ring
