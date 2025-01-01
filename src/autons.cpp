@@ -163,13 +163,13 @@ void BlueSoloAWPSig(){
   chassis.pid_turn_set(-125_deg, TURN_SPEED);
   chassis.pid_wait_quick();
   intake.move_velocity(1200);
-  chassis.pid_drive_set(22_in, 70);
+  chassis.pid_drive_set(21_in, 70);
   chassis.pid_wait_quick();
   chassis.drive_imu_reset(); 
   //1st Ring on Goal
   chassis.pid_turn_set(-95_deg, TURN_SPEED);
   chassis.pid_wait_quick();
-  chassis.pid_drive_set(18_in, DRIVE_SPEED);
+  chassis.pid_drive_set(16.5_in, DRIVE_SPEED);
   chassis.pid_wait_quick();
   pros::delay(200);
   //2nd Ring on goal
@@ -192,18 +192,20 @@ void BlueSoloAWPSig(){
   intake.move_velocity(0);
   chassis.pid_wait();
   clamper.set_value(true);
-  /*
+  //2nd Goal Grabbed
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(120_deg, TURN_SPEED);
+  chassis.pid_turn_set(110_deg, TURN_SPEED);
   chassis.pid_wait_quick();
-  chassis.pid_drive_set(25_in, 90);
+  intake.move_velocity(1200);
+  chassis.pid_drive_set(22_in, 90);
   chassis.pid_wait();
+  //1st ring on 2nd goal
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-45_deg, TURN_SPEED);
+  chassis.pid_turn_set(-17_deg, TURN_SPEED);
   chassis.pid_wait_quick();
-  chassis.pid_drive_set(-25_in, 90);
+  chassis.pid_drive_set(-22_in, 90);
   chassis.pid_wait();
-  */
+  
  
   pros::delay(2000);
 

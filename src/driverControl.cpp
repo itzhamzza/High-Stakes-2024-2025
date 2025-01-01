@@ -19,13 +19,13 @@ void Redirecter(){
 
 }
 
-
+bool sortering = false;
 //Intake
 void intaking(){
     
         
 
-        if(master.get_digital(DIGITAL_R2)){
+        if(master.get_digital(DIGITAL_R2) && sortering == false){
             //intakes in
             intake.move_velocity(1200);
             pros::delay(50);
@@ -63,10 +63,12 @@ void colorSort(){
             //     pros::delay(1000);
             // }
         //THIS THROWS OUT BLUE
-               while (color_sens.get_hue() > 215 && color_sens.get_hue() < 230){
-                   //pros::delay(500);
+               if (color_sens.get_hue() > 225 && color_sens.get_hue() < 230){
+                   //pros::delay(100);
+                   sortering = true;
                    intake.move_velocity(0);
                    pros::delay(1000);
+                   sortering = false;
                }
                pros::delay(50);
     
