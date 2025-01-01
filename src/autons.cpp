@@ -201,9 +201,9 @@ void BlueSoloAWPSig(){
   chassis.pid_wait();
   //1st ring on 2nd goal
   chassis.drive_imu_reset(); 
-  chassis.pid_turn_set(-17_deg, TURN_SPEED);
+  chassis.pid_turn_set(-18.5_deg, TURN_SPEED);
   chassis.pid_wait_quick();
-  chassis.pid_drive_set(-22_in, 90);
+  chassis.pid_drive_set(-26_in, 90);
   chassis.pid_wait();
   
  
