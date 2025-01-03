@@ -43,12 +43,13 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
+      Auton("Skills", skills),
+      Auton("RedSoloAWPSig", RedSoloAWPSig),
       Auton("BlueSoloAWPSig", BlueSoloAWPSig),
       Auton("blueAlliance3Ring", blueAlliance3Ring),
       Auton("blueFiveRing", blueFiveRing),
       Auton("redFiveRing", redFiveRing),
       Auton("bluePos2", bluePos2),
-      Auton("Skills", skills),
       Auton("Red Side, redFiveRing", redFiveRing),
       //Auton("Red Side, redSoloSig", redSoloSig),
       Auton("Blue Side, blueFiveRing", blueFiveRing),

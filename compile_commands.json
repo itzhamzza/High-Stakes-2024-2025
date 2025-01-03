@@ -539,11 +539,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/main.cpp.o",
-            "src/main.cpp"
+            "bin/driverControl.cpp.o",
+            "src/driverControl.cpp"
         ],
         "directory": "/Users/hadeerawan/Downloads/High Stakes 2024-2025/High Stakes 2024-2025",
-        "file": "src/main.cpp"
+        "file": "src/driverControl.cpp"
     },
     {
         "arguments": [
@@ -578,11 +578,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/driverControl.cpp.o",
-            "src/driverControl.cpp"
+            "bin/main.cpp.o",
+            "src/main.cpp"
         ],
         "directory": "/Users/hadeerawan/Downloads/High Stakes 2024-2025/High Stakes 2024-2025",
-        "file": "src/driverControl.cpp"
+        "file": "src/main.cpp"
     },
     {
         "arguments": [
