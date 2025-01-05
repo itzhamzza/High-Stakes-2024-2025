@@ -2,6 +2,7 @@
 #include "pros/misc.h"
 #include "pros/motors.h"
 bool dir = false;
+int Test = 0;
 //Redirect
 void Redirecter(){
     if(master.get_digital(DIGITAL_UP)){
@@ -28,7 +29,8 @@ void intaking(){
         if(master.get_digital(DIGITAL_R2) && sortering == false){
             //intakes in
             intake.move_velocity(1200);
-            pros::delay(50);
+
+            Test = 1;
             
             if (dir == true){
                 intake.move_velocity(-300); 
@@ -46,7 +48,7 @@ void intaking(){
         }
         else{
             intake.move_velocity(0);
-        
+            Test = 0;
             //intake.set_brake_mode(MOTOR_BRAKE_COAST);
             
 
@@ -57,28 +59,28 @@ void colorSort(){
     while(true){
     
         // //THIS THORWS OUT RED
-            // while (color_sens.get_hue() < 20 && color_sens.get_hue() > 5){
-            //    //pros::delay(100);
-                //    sortering = true;
-                //    intake.move_velocity(0);
-                //    pros::delay(1000);
-                //    sortering = false;
-            // }
+             if (color_sens.get_hue() < 20 && color_sens.get_hue() > 5){
+                //pros::delay(100);
+                    sortering = true;
+                    intake.move_velocity(0);
+                    pros::delay(1000);
+                    sortering = false;
+             }
         //THIS THROWS OUT BLUE
-               if (color_sens.get_hue() > 225 && color_sens.get_hue() < 230){
-                   //pros::delay(100);
-                   sortering = true;
-                   intake.move_velocity(0);
-                   pros::delay(1000);
-                   sortering = false;
-               }
+            //    if (color_sens.get_hue() > 225 && color_sens.get_hue() < 230){
+            //        //pros::delay(100);
+            //        sortering = true;
+            //        intake.move_velocity(0);
+            //        pros::delay(1000);
+            //        sortering = false;
+            //    }
                pros::delay(50);
-    
 
     }
 }
 
 int stage = 0;
+
 
 void ladybrownMovement(){
     
