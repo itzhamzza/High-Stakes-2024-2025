@@ -6,19 +6,20 @@
 
 // inline pros::Motor intake(1);
 // inline pros::adi::DigitalIn limit_switch('A');
-inline pros::Motor intake(20, pros::v5::MotorGears::blue);
+inline pros::Motor ladyBrown(1, pros::v5::MotorGears::green);
 
 
 
-inline pros::MotorGroup ladyBrown({-1,5}, pros::v5::MotorGears::green, pros::v5::MotorUnits::degrees);
+
+inline pros::MotorGroup intake({2,6}, pros::v5::MotorGears::blue, pros::v5::MotorUnits::degrees);
 inline pros::Distance distance_sens(19);
 
 inline pros::Rotation rotation_sens(18);
 
-inline pros::Optical color_sens(8);
+inline pros::Optical color_sens(14);
 
-inline pros::adi::DigitalOut clamper('A', 0);
+inline pros::adi::DigitalOut clamper('B', 0);
 
-inline pros::adi::DigitalOut doink('B', 0);
+inline pros::adi::DigitalOut doink('C', 0);
 
-inline pros::adi::DigitalOut armPiston('C', 0);
+inline pros::adi::DigitalOut armPiston('A', 0);

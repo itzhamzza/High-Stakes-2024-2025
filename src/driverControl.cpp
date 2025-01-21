@@ -2,7 +2,7 @@
 #include "pros/misc.h"
 #include "pros/motors.h"
 bool dir = false;
-int Test = 0;
+
 //Redirect
 void Redirecter(){
     if(master.get_digital(DIGITAL_UP)){
@@ -28,9 +28,7 @@ void intaking(){
 
         if(master.get_digital(DIGITAL_R2) && sortering == false){
             //intakes in
-            intake.move_velocity(1200);
-
-            Test = 1;
+            intake.move_velocity(-1200);
             
             if (dir == true){
                 intake.move_velocity(-300); 
@@ -43,12 +41,11 @@ void intaking(){
         }
         else if(master.get_digital(DIGITAL_R1)){
             //intakes out
-            intake.move_velocity(-600);
+            intake.move_velocity(600);
             
         }
         else{
             intake.move_velocity(0);
-            Test = 0;
             //intake.set_brake_mode(MOTOR_BRAKE_COAST);
             
 
@@ -59,22 +56,27 @@ void colorSort(){
     while(true){
     
         // //THIS THORWS OUT RED
-             if (color_sens.get_hue() < 20 && color_sens.get_hue() > 5){
-                //pros::delay(100);
+            //  if (color_sens.get_hue() < 20 && color_sens.get_hue() > 5){
+            //     pros::delay(10);
+            //         sortering = true;
+            //         intake.move_relative(1000000000,10000);
+            //         pros::delay(1000);
+            //         sortering = false;
+            //  }
+        //THIS THROWS OUT BLUE
+               if (color_sens.get_hue() < 230 && color_sens.get_hue() > 210){
+                pros::delay(10);
                     sortering = true;
-                    intake.move_velocity(0);
+                    intake.move_relative(1000000000,10000);
                     pros::delay(1000);
                     sortering = false;
-             }
-        //THIS THROWS OUT BLUE
-            //    if (color_sens.get_hue() > 225 && color_sens.get_hue() < 230){
-            //        //pros::delay(100);
-            //        sortering = true;
-            //        intake.move_velocity(0);
-            //        pros::delay(1000);
-            //        sortering = false;
-            //    }
-               pros::delay(50);
+                   //pros::delay(100);
+                   //sortering = true;
+                   //intake.move_velocity(-1200);
+                   //pros::delay(1000);
+                   //sortering = false;
+               }
+               pros::delay(10);
 
     }
 }
@@ -91,14 +93,18 @@ void ladybrownMovement(){
                 ladyBrown.set_brake_mode(MOTOR_BRAKE_HOLD);
                 intake.set_brake_mode(MOTOR_BRAKE_HOLD);
             
-                ladyBrown.move_absolute(-85, 200);
+                ladyBrown.move_absolute(-450, 200);
                 
                 stage++;
             }
-            else if (stage != 0){
+            else if (stage == 1){
                 intake.set_brake_mode(MOTOR_BRAKE_COAST);
-                ladyBrown.move_absolute(-390, 200);
-                //stage--;
+                ladyBrown.move_absolute(-1000, 200);
+                stage++;
+            }
+            else if(stage == 2){
+                ladyBrown.move_absolute(-2000, 200);
+
             }
 
             

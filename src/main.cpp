@@ -10,10 +10,10 @@
 // Chassis constructor
 ez::Drive chassis(
     // Drive motors, the first motor is used for sensing
-    {-17, -18, -19},  // Left Chassis Ports 
-    {13, 12, 11},  // Right Chassis Ports 
+    {-13, -15, -16},  // Left Chassis Ports 
+    {4, 5, 12},  // Right Chassis Ports 
 
-    9,     // IMU Port
+    20,     // IMU Port
     3.25,  // Wheel Diameter 
     450);   // Wheel RPM
 
